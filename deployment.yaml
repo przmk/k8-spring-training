@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-k8-27dec
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: hello-deps
+  template:
+    metadata:
+      labels:
+        app: hello-deps
+    spec:
+      containers:
+        - name: hello-deps
+          image: przmk/k8-training:0.0.1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
