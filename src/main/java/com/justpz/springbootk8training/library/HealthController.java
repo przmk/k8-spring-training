@@ -29,7 +29,7 @@ public class HealthController {
 
   @GetMapping("/")
   public String sayHello() {
-    greeting = environment.getProperty("GREETING", "Aloha");
+    greeting = environment.getProperty("GREETING", "Yoo");
     count++;
     log.info("{} from {} {}", greeting, hostname, count);
     return greeting + " from Spring Boot! " + count + " on " + hostname + "\n";
