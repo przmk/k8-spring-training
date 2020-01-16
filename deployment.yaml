@@ -1,20 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deployment-k8-27dec
-  namespace: default
+  labels:
+    app: reservation
+  name: reservation-app
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      app: hello-deps
+      app: reservation
   template:
     metadata:
       labels:
-        app: hello-deps
+        app: reservation
     spec:
       containers:
-        - name: hello-deps
-          image: przmk/k8-training:0.0.1
-          imagePullPolicy: Always
+        - name: reservation-container
+          image: przmk/reservation-k8:release-1.0.1
           ports:
             - containerPort: 8080
