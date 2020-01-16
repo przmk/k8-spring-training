@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 class ReservationIncomeListener implements ApplicationListener<ReservationEvent> {
+
   private final StoreService storeService;
 
   ReservationIncomeListener(

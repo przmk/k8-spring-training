@@ -3,6 +3,7 @@ package com.justpz.springbootk8training.library.events;
 import org.springframework.context.ApplicationEvent;
 
 public class ReservationEvent extends ApplicationEvent {
+
   private Reservation reservation;
 
   public ReservationEvent(Object source,

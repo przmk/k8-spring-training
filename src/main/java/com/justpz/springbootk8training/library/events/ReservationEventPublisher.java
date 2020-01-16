@@ -13,7 +13,7 @@ public class ReservationEventPublisher {
     this.eventPublisher = eventPublisher;
   }
 
-  public void publish(Reservation reservation){
+  public void publish(Reservation reservation) {
     ReservationEvent reservationEvent = new ReservationEvent(this, reservation);
     eventPublisher.publishEvent(reservationEvent);
   }

@@ -14,6 +14,7 @@ import org.springframework.web.client.RestTemplate;
 public class HealthController {
 
   private static final Logger log = LoggerFactory.getLogger(HealthController.class);
+  public static final String DEFAULT = "Default";
   private final Environment environment;
 
   public HealthController(Environment environment) {
@@ -22,6 +23,7 @@ public class HealthController {
 
   final String hostname = System.getenv().getOrDefault("HOSTNAME", "unknown");
   String greeting;
+
 
   private int count = 0; // simple counter to see lifecycle
 
@@ -47,7 +49,7 @@ public class HealthController {
 
   @GetMapping("/consume")
   public String consumeSome() {
-    log.info("/consume {}" , hostname);
+    log.info("/consume {}", hostname);
 
     Runtime rt = Runtime.getRuntime();
     StringBuilder sb = new StringBuilder();
@@ -77,10 +79,10 @@ public class HealthController {
 
   @GetMapping("/configure")
   public String configure() {
-    String databaseConn = environment.getProperty("DBCONN", "Default");
-    String msgBroker = environment.getProperty("MSGBROKER", "Default");
-    greeting = environment.getProperty("GREETING", "Default");
-    String love = environment.getProperty("LOVE", "Default");
+    String databaseConn = environment.getProperty("DBCONN", DEFAULT);
+    String msgBroker = environment.getProperty("MSGBROKER", DEFAULT);
+    greeting = environment.getProperty("GREETING", DEFAULT);
+    String love = environment.getProperty("LOVE", DEFAULT);
     return "Configuration for : " + hostname + "\n"
         + "databaseConn=" + databaseConn + "\n"
         + "msgBroker=" + msgBroker + "\n"
