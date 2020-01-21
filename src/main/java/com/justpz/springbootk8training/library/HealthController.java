@@ -34,7 +34,7 @@ public class HealthController {
     greeting = environment.getProperty("GREETING", "Yoo");
     count++;
     log.info("{} from {} {}", greeting, hostname, count);
-    return greeting + " from Spring Boot and pz! " + count + " on " + hostname + "\n";
+    return greeting + " from Spring Boot and pz v3! " + count + " on " + hostname + "\n";
   }
 
   @GetMapping("/sysresources")
